@@ -32,8 +32,8 @@ Generate the scaffold list for the reference genome (from the fasta file)
 
 grep "^>" GCF_008692025.1_mPhoSin1.pri_genomic.fna > GCF_008692025.1_mPhoSin1.pri_genomic.fna.scaffolds.list
 
-# This list has the ">" at the beginning of each line, so need to remove those in a text editor, then save and copy back to folder with the reference fasta file. 
-# There's probably an easier way to do this with awk (see below), but I haven't figured it out.
+ This list has the ">" at the beginning of each line, so need to remove those in a text editor, then save and copy back to folder with the reference fasta file. 
+ There's probably an easier way to do this with awk (see below), but I haven't figured it out.
 
 #########################
 Generate chromosome lengths from the fasta index file (from samtools index):
