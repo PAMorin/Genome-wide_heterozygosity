@@ -30,16 +30,17 @@ MAXDEPTH (integer; maximum depth for calling genotypes)
 #### Scaffolds list file ####
 Generate the scaffold list for the reference genome (from the fasta file)
 
-grep "^>" GCF_008692025.1_mPhoSin1.pri_genomic.fna > GCF_008692025.1_mPhoSin1.pri_genomic.fna.scaffolds.list
+FASTA=/path/filename.fasta
 
- This list has the ">" at the beginning of each line, so need to remove those in a text editor, then save and copy back to folder with the reference fasta file. 
- There's probably an easier way to do this with awk (see below), but I haven't figured it out.
+grep "^>" ${FASTA} | sed 's/>//g' > ${FASTA}.scaffolds.list 
 
 #########################
 Generate chromosome lengths from the fasta index file (from samtools index):
-awk '{print $1}' filename.fasta.fai > filename.chrom_lengths.txt
 
+awk '{print $1,$2}' ${FASTA}.fai > ${FASTA}.chrom_lengths.txt
 
+  format:
+  scaffold_ID Length
 
 ####################################################################
 Running script
